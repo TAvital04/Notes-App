@@ -1,6 +1,20 @@
-import express from "express";
-import {router} from "./routes/router.js"
+// Imports
+    import express from "express";
+    import {router} from "./routes/router.js"
 
-export const app = express();
+    import {connect} from "./connect.js";
 
-app.use("/", router);
+// Constants
+    export const app = express();
+
+// Main
+    // Connect to Mongoose
+        try {
+            await connect(process.env.DB_CONN);
+            console.log(`(1) MongoDB connected at ${process.env.DB_CONN} :D`);
+        } catch {
+            console.log("(1) MonogDB not connected :P");
+        }
+
+    // Configure the app
+        app.use("/", router);
