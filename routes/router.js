@@ -1,6 +1,10 @@
 import {Router} from "express";
-import userController from "../controllers/userController.js";
+import noteController from "../controllers/noteController.js";
 
 export const router = Router();
 
-router.get("/", userController.login);
+router.get("/", (req, res) => {
+    res.send("Home");
+});
+
+router.get("/notes", noteController.getNotes)

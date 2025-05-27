@@ -8,7 +8,7 @@
     export const app = express();
 
 // Main
-    // Connect to Mongoose
+    // Connect to MongoDB
         try {
             await connect(process.env.DB_CONN);
             console.log(`(1) MongoDB connected at ${process.env.DB_CONN} :D`);
