@@ -1,9 +1,19 @@
-import Note from "../models/noteModel.js";
+// Imports
+    import Note from "../models/noteModel.js";
 
-const getAllNotes = async () => {
-    return await Note.find().lean();
-}
+// CRUD: Create
+    const createNote = async (noteData) => {
+        console.log("Note data in handler: ", noteData);
+        return Note.create(noteData);
+    }
 
-export default {
-    getAllNotes
-}
+// CRUD: Read
+    const getAllNotes = async () => {
+        return await Note.find().lean();
+    }
+
+// Exports
+    export default {
+        createNote,
+        getAllNotes
+    }

@@ -1,3 +1,5 @@
-import mongoose from "mongoose";
+// Imports
+    import mongoose from "mongoose";
 
-export const connect = (url) => mongoose.connect(url);
+// Exports
+    export const connect = (url) => mongoose.connect(url);
