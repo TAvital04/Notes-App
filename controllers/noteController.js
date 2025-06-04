@@ -18,6 +18,15 @@
         res.json({title: "All Notes", notes});
     }
 
+    // not tested
+    const getNoteBySlug = async (req, res, next) => {
+        const note = await noteHandler.getOneNoteBySlug({slug: req.params.slug});
+
+        if(!note) return next();
+
+        res.send(note);
+    }
+
 // CRUD: Update
     const editNote = async(req, res) => {
         const note = await noteHandler.getOneNote({id: req.params.id});
@@ -47,5 +56,6 @@
         getNotes,
         editNote,
         updateNote,
-        deleteNote
+        deleteNote,
+        getNoteBySlug
     }

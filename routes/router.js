@@ -10,16 +10,19 @@
         res.send("Home");
     });
 
-    // CRUD: Create
-        router.get("/add", noteController.addNote);
-        router.post("/add", noteController.createNote);
+    // Notes
 
-    // CRUD: Read
-        router.get("/notes", noteController.getNotes);
+        // CRUD: Create
+            router.get("/add", noteController.addNote);
+            router.post("/add", noteController.createNote);
 
-    // CRUD: Update
-        router.get("/notes/:id/edit", noteController.editNote);
-        router.post("/notes/:id/edit", noteController.updateNote);
+        // CRUD: Read
+            router.get("/notes", noteController.getNotes);
+            router.get("/note/:slug", noteController.getNoteBySlug);
 
-    // CRUD: Delete
-        router.delete("/notes/:id", noteController.deleteNote);
+        // CRUD: Update
+            router.get("/notes/:id/edit", noteController.editNote);
+            router.post("/notes/:id/edit", noteController.updateNote);
+
+        // CRUD: Delete
+            router.delete("/notes/:id", noteController.deleteNote);

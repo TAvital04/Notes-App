@@ -15,6 +15,10 @@
         return await Note.findOne({_id: id}).lean();
     }
 
+    const getOneNoteBySlug = async ({slug}) => {
+        return await Note.findOne({slug}).lean();
+    }
+
 // CRUD: Edit
     const updateNote = async (id, noteData) => {
         return await Note.findOneAndUpdate({_id: id}, noteData).lean();
@@ -31,5 +35,6 @@
         getAllNotes,
         getOneNote,
         updateNote,
-        deleteNote
+        deleteNote,
+        getOneNoteBySlug
     }
