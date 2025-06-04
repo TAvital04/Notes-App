@@ -3,7 +3,6 @@
 
 // CRUD: Create
     const createNote = async (noteData) => {
-        console.log("Note data in handler: ", noteData);
         return Note.create(noteData);
     }
 
