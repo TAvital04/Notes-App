@@ -16,3 +16,10 @@
 
     // CRUD: Read
         router.get("/notes", noteController.getNotes);
+
+    // CRUD: Update
+        router.get("/notes/:id/edit", noteController.editNote);
+        router.post("/notes/:id/edit", noteController.updateNote);
+
+    // CRUD: Delete
+        router.delete("/notes/:id", noteController.deleteNote);
