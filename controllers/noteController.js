@@ -3,12 +3,13 @@
 
 // CRUD: Create
     const addNote = async (req, res) => {
-        res.send("Add note");
+        res.render("addNote", {
+            title: "Add"
+        });
     }
     const createNote = async (req, res) => {
         const noteData = req.body;
         const note = await noteHandler.createNote(noteData);
-        //req.flash("success", `/${note.slug} added successfully :D`);
         res.redirect("/");
     }
 
