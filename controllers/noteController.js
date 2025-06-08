@@ -31,7 +31,8 @@
 // CRUD: Update
     const editNote = async(req, res) => {
         const note = await noteHandler.getOneNote({id: req.params.id});
-        res.send(note);
+        
+        res.render("editNote", note);
     }
     const updateNote = async(req, res) => {
         const id = req.params.id;
@@ -47,6 +48,7 @@
         const id = req.params.id;
         const note = await noteHandler.deleteNote(id);
 
+        console.log("attempted to delete");
         res.redirect("/");
     }
 

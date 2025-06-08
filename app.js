@@ -18,6 +18,8 @@
 // Middleware
     app.use(express.json());
 
+    app.use(express.urlencoded({extended:true}));
+
 // Router
     app.use("/", router);
 

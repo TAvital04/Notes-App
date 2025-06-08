@@ -1,11 +1,27 @@
-<!DOCTYPE html>
-<html lang = "en">
-    <head>
-        <meta charset = "utf-8">
-        <title><%= title %></title>
-    </head>
+<%- include("./partials/header.ejs", {title}) %>
 
-    <body>
-        <h1><%= title %></h1>
-    </body>
-</html>
+    <form
+        action = "/add"
+        method = "POST"
+    >
+        <!--Title-->
+        <div class = "title">
+            <input 
+                type = "text"
+                name = "title"
+                placeholder = "Enter note title (required)"
+            >
+        </div>
+
+        <!--Content-->
+        <div class = "content">
+            <textarea
+                name = "content"
+                placeholder = "Enter note body"
+            ></textarea>
+        </div>
+
+        <button type = "submit" class = "submit"></button>
+    </form>  
+
+<%- include("./partials/footer.ejs") %>
