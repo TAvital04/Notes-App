@@ -13,18 +13,22 @@
         content: {
             type: String,
             required: false
+        },
+
+        slug: {
+            type: String,
         }
-    })
+    });
 
     // Navigate modifying note name
     noteSchema.pre("save", function (next) {
-        if(!this.isModified("name")) {
+        if(!this.isModified("title")) {
             return next();
         }
 
-        this.slug = slugger.slug(this.name);
+        this.slug = slugger.slug(this.title);
         next();
-    })
+    });
 
 // Exports
     export default mongoose.model("Note", noteSchema);

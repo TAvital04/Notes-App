@@ -1,0 +1,13 @@
+<%- include("./partials/header.ejs", {title}) %>
+
+<h1><%= title %></h1>
+
+<a type = "button" href = "/notes/add">New Note</a>
+
+<div id = "notes-list">
+    <% notes.map(note => { %>
+        <%- include("./components/note.ejs", {note}) %>
+    <% }) %>
+</div>
+
+<%- include("./partials/footer.ejs") %>

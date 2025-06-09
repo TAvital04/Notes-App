@@ -10,6 +10,7 @@
                 type = "text"
                 name = "title"
                 placeholder = "Enter note title (required)"
+                value = "<%= note.title %>"
             >
         </div>
 
@@ -18,7 +19,7 @@
             <textarea
                 name = "content"
                 placeholder = "Enter note body"
-            ></textarea>
+            ><%= note.content %></textarea>
         </div>
 
         <button type = "submit" class = "submit"></button>

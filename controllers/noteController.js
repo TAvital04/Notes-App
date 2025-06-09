@@ -10,13 +10,16 @@
     const createNote = async (req, res) => {
         const noteData = req.body;
         const note = await noteHandler.createNote(noteData);
-        res.redirect("/");
+        res.redirect("/notes");
     }
 
 // CRUD: Read
     const getNotes = async (req, res) => {
         const notes = await noteHandler.getAllNotes();
-        res.json({title: "All Notes", notes});
+        res.render("allNotes", {
+            title: "Notes",
+            notes
+        })
     }
 
     // not tested
@@ -25,14 +28,20 @@
 
         if(!note) return next();
 
-        res.send(note);
+        res.render("editNote", {
+            title: "Edit",
+            note
+        });
     }
 
 // CRUD: Update
     const editNote = async(req, res) => {
         const note = await noteHandler.getOneNote({id: req.params.id});
         
-        res.render("editNote", note);
+        res.render("editNote", {
+            title: "Edit",
+            note
+        });
     }
     const updateNote = async(req, res) => {
         const id = req.params.id;
@@ -48,8 +57,7 @@
         const id = req.params.id;
         const note = await noteHandler.deleteNote(id);
 
-        console.log("attempted to delete");
-        res.redirect("/");
+        res.redirect("/notes");
     }
 
 // Exports

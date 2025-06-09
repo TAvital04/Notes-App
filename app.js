@@ -6,6 +6,8 @@
     import {fileURLToPath} from "url";
     import path from "path";
 
+    import methodOverride from "method-override";
+
 // Constants
     export const app = express();
 
@@ -19,6 +21,8 @@
     app.use(express.json());
 
     app.use(express.urlencoded({extended:true}));
+
+    app.use(methodOverride("_method"));
 
 // Router
     app.use("/", router);

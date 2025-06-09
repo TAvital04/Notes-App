@@ -1,0 +1,11 @@
+<div class = note>
+    <div class = "note-title">
+        <a href = "/notes/<%= note.slug %>"><%= note.title %></a>
+    </div>
+
+    <div class = "note-options">
+        <form action = "/notes/<%= note._id %>/delete?_method=DELETE" method = "POST">
+            <button type = "submit" class = "note-options-delete">Delete</button>
+        </form>
+    </div>
+</div>

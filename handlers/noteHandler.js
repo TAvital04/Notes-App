@@ -3,7 +3,7 @@
 
 // CRUD: Create
     const createNote = async (noteData) => {
-        return Note.create(noteData);
+        return await Note.create(noteData);
     }
 
 // CRUD: Read
