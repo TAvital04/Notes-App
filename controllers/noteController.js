@@ -49,7 +49,7 @@
 
         const note = await noteHandler.updateNote(id, noteData);
 
-        res.redirect(`/notes/${note._id}/edit`);
+        res.redirect("/notes");
     }
 
 // CRUD: Delete

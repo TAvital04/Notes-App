@@ -1,7 +1,7 @@
 <%- include("./partials/header.ejs", {title}) %>
 
     <form
-        action = "/notes/add"
+        action = "/notes/<%= note._id %>/edit"
         method = "POST"
     >
         <!--Title-->
