@@ -8,6 +8,8 @@
 
     import methodOverride from "method-override";
 
+    import passport from "passport";
+
 // Constants
     export const app = express();
 
@@ -23,6 +25,8 @@
     app.use(express.urlencoded({extended:true}));
 
     app.use(methodOverride("_method"));
+
+    app.use(passport.initialize());
 
 // Router
     app.use("/", router);
