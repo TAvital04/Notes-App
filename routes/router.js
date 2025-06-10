@@ -33,4 +33,4 @@
         
         // Login
             router.get("/register", userController.registerForm);
-            router.post("/register", userController.register);
+            router.post("/register", userController.register);//
