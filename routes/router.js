@@ -3,6 +3,7 @@
 
     import noteController from "../controllers/noteController.js";
     import userController from "../controllers/userController.js";
+    import authController from "../controllers/authController.js";
 
 // Constants
     export const router = Router();
@@ -38,3 +39,7 @@
                 userController.validateRegister,
                 userController.register
             );
+
+        // Login
+            router.get("/login", userController.loginForm);
+            router.post("/login", authController.login);
