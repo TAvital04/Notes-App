@@ -1,7 +1,8 @@
 import userHandler from "../handlers/userHandler.js";
+import {body, validationResult} from "express-validator";
 
 const registerForm = async(req, res) => {
-    res.send("Hello moto");
+    res.send("error");
 }
 
 const register = async(req, res) => {
@@ -22,7 +23,30 @@ const register = async(req, res) => {
     });
 }
 
+const validateRegister = [
+    body("username").notEmpty().withMessage("Email address is required"),
+    body("username").isEmail().withMessage("Please provide a valid email"),
+    
+    body("password").isLength({min: 6}).withMessage("Password must be at least 6 characters"),
+
+    body("confirm-password").custom((value, {req}) => {
+        return value === req.body.password;
+    }).withMessage("Password must match Confirm Password"),
+
+    (req, res, next) => {
+        const errors = validationResult(req);
+        
+        if(!errors.isEmpty()) {
+            res.send(errors.errors.map((err) => err.msg).join(". "));
+        } else {
+            next();
+        }
+    }
+]
+
 export default {
     registerForm,
-    register
+    register,
+
+    validateRegister
 }
