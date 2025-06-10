@@ -9,6 +9,9 @@
     import methodOverride from "method-override";
 
     import passport from "passport";
+    import "./handlers/passport.js";
+    import session from "express-session";
+    import MongoStore from "connect-mongo";
 
 // Constants
     export const app = express();
@@ -26,7 +29,20 @@
 
     app.use(methodOverride("_method"));
 
+    app.use(
+        session({
+            secret: process.env.PASSPORT_SECRET,
+            key: process.env.PASSPORT_COOKIE_KEY,
+            resave: false,
+            saveUninitialized: false,
+            store: MongoStore.create({
+                mongoUrl: process.env.DB_CONN
+            })
+        })
+    );
+
     app.use(passport.initialize());
+    app.use(passport.session());
 
 // Router
     app.use("/", router);
