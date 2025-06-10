@@ -3,7 +3,9 @@ import {body, validationResult} from "express-validator";
 
 // Register
     const registerForm = async(req, res) => {
-        res.send("error");
+        res.render("register", {
+            title: "Register"
+        });
     }
 
     const register = async(req, res) => {
@@ -47,7 +49,9 @@ import {body, validationResult} from "express-validator";
 
 // Login
     const loginForm = async(req, res) => {
-        res.send("tomato");
+        res.render("login", {
+            title: "Login"
+        })
     }
 
 export default {

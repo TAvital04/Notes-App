@@ -17,7 +17,7 @@
 
         slug: {
             type: String,
-        }
+        },
     });
 
     // Navigate modifying note name
