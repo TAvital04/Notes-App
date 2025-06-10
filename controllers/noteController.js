@@ -10,6 +10,7 @@
     const createNote = async (req, res) => {
         const noteData = req.body;
         const note = await noteHandler.createNote(noteData);
+
         res.redirect("/notes");
     }
 

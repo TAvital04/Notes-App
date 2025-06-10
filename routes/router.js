@@ -1,6 +1,8 @@
 // Imports
     import {Router} from "express";
+
     import noteController from "../controllers/noteController.js";
+    import userController from "../controllers/userController.js";
 
 // Constants
     export const router = Router();
@@ -26,3 +28,9 @@
 
         // CRUD: Delete
             router.delete("/notes/:id/delete", noteController.deleteNote);
+
+    // Users
+        
+        // Login
+            router.get("/register", userController.registerForm);
+            router.post("/register", userController.register);
