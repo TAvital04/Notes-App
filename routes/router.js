@@ -5,6 +5,7 @@
     import userController from "../controllers/userController.js";
 
     import authController from "../controllers/authController.js";
+    import {catchErrors} from "../controllers/errorHandlers.js";
 
 // Constants
     export const router = Router();
@@ -20,15 +21,20 @@
             router.get(
                 "/notes/add",
                 authController.isAuthenticated,
-                noteController.addNote);
+                catchErrors(noteController.addNote)
+            );
 
-            router.post("/notes/add", noteController.createNote);
+            router.post("/notes/add", 
+                noteController.upload,
+                catchErrors(noteController.resize),//
+                catchErrors(noteController.createNote)//
+            );
 
         // CRUD: Read
             router.get(
                 "/notes",
                 authController.isAuthenticated,
-                noteController.getNotes
+                catchErrors(noteController.getNotes)
             );
 
             router.get("/notes/:slug", noteController.getNoteBySlug);
@@ -43,14 +49,14 @@
             router.post(
                 "/notes/:id/edit", 
                 authController.isAuthenticated,
-                noteController.updateNote
+                catchErrors(noteController.updateNote)
             );
 
         // CRUD: Delete
             router.delete(
                 "/notes/:id/delete",
                 authController.isAuthenticated,
-                noteController.deleteNote
+                catchErrors(noteController.deleteNote)
             );
 
     // Users
