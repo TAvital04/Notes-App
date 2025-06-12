@@ -15,7 +15,7 @@
     import MongoStore from "connect-mongo";
 
     import flash from "connect-flash";
-    import {flashValidationErrors} from "./handlers/errorHandlers.js";
+    import {notFound, flashValidationErrors} from "./handlers/errorHandlers.js";
 
 // Constants
     export const app = express();
@@ -65,4 +65,6 @@
 
 // Middleware 2
     app.use(flashValidationErrors);
+
+    app.use(notFound);
 
