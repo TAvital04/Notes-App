@@ -5,7 +5,7 @@
     import userController from "../controllers/userController.js";
 
     import authController from "../controllers/authController.js";
-    import {catchErrors} from "../controllers/errorHandlers.js";
+    import {catchErrors} from "../handlers/errorHandlers.js";
 
 // Constants
     export const router = Router();
@@ -24,10 +24,9 @@
                 catchErrors(noteController.addNote)
             );
 
-            router.post("/notes/add", 
-                noteController.upload,
-                catchErrors(noteController.resize),//
-                catchErrors(noteController.createNote)//
+            router.post(
+                "/notes/add", 
+                catchErrors(noteController.createNote)
             );
 
         // CRUD: Read
@@ -37,7 +36,10 @@
                 catchErrors(noteController.getNotes)
             );
 
-            router.get("/notes/:slug", noteController.getNoteBySlug);
+            router.get(
+                "/notes/:slug", 
+                noteController.getNoteBySlug
+            );
 
         // CRUD: Update
             router.get(
@@ -62,7 +64,10 @@
     // Users
         
         // Register
-            router.get("/register", userController.registerForm);
+            router.get(
+                "/register", 
+                userController.registerForm
+            );
             router.post(
                 "/register", 
                 userController.validateRegister,
@@ -70,6 +75,16 @@
             );
 
         // Login
-            router.get("/login", userController.loginForm);
-            router.post("/login", authController.login);
-            router.get("/logout", authController.isAuthenticated, authController.logout)
+            router.get(
+                "/login", 
+                userController.loginForm
+            );
+            router.post(
+                "/login", 
+                authController.login
+            );
+            router.get(
+                "/logout", 
+                authController.isAuthenticated, 
+                authController.logout
+            );
