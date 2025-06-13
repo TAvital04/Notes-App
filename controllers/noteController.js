@@ -8,7 +8,10 @@
         });
     }
     const createNote = async (req, res) => {
-        const noteData = req.body;
+        const noteData = {
+            ...req.body,
+            user: req.user._id
+        }
         const note = await noteHandler.createNote(noteData);
 
         req.flash("success", `/${note.slug} added successfull!`);
@@ -17,7 +20,7 @@
 
 // CRUD: Read
     const getNotes = async (req, res) => {
-        const notes = await noteHandler.getAllNotes();
+        const notes = await noteHandler.getAllNotes(req.user._id);
         res.render("allNotes", {
             title: "Notes",
             notes

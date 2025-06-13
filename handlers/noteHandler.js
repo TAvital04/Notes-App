@@ -7,8 +7,8 @@
     }
 
 // CRUD: Read
-    const getAllNotes = async () => {
-        return await Note.find().lean();
+    const getAllNotes = async (id) => {
+        return await Note.find({user: id}).lean();
     }
 
     const getOneNote = async ({id}) => {
@@ -21,7 +21,10 @@
 
 // CRUD: Edit
     const updateNote = async (id, noteData) => {
-        return await Note.findOneAndUpdate({_id: id}, noteData).lean();
+        return await Note.findOneAndUpdate({_id: id}, noteData, {
+            new: true,
+            runValidators: true
+        }).lean();
     }
 
 // CRUD: Delete

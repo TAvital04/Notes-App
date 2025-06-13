@@ -13,6 +13,7 @@ const logout = (req, res, next) => {
         }
     });
 
+    req.flash("success", "You have logged out :D");
     res.redirect("/");
 };
 
@@ -21,6 +22,7 @@ const isAuthenticated = async (req, res, next) => {
         return next();
     }
 
+    req.flash("danger", "Please log in :P");
     res.redirect("/login");
 }
 

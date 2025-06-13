@@ -10,7 +10,7 @@ export const flashValidationErrors = (err, req, res, next) => {
 
     const errorKeys = Object.keys(err.errors);
     errorKeys.forEach((key) => req.flash("error", err.errors[key].message));
-    res.redirect("/");
+    res.redirect("/login");
 }
 
 export const notFound = (req, res, next) => {
