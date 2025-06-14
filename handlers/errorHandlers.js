@@ -10,11 +10,16 @@ export const flashValidationErrors = (err, req, res, next) => {
 
     const errorKeys = Object.keys(err.errors);
     errorKeys.forEach((key) => req.flash("error", err.errors[key].message));
-    res.redirect("/login");
+    res.redirect("/notes");
 }
 
 export const notFound = (req, res, next) => {
     const err = new Error("Not Found :P");
     err.status = 404;
+
+    if(req.path.startsWith("/.well-known")) {
+        return res.status(204).end();
+    }
+
     next(err);
 }

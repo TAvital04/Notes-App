@@ -1,5 +1,6 @@
 <%- include("./partials/header.ejs", {title}) %>
 
+<div class = "notebook">
     <form
         action = "/notes/add"
         method = "POST"
@@ -22,6 +23,7 @@
         </div>
 
         <button type = "submit" class = "submit"></button>
-    </form>  
+    </form>
+</div>
 
 <%- include("./partials/footer.ejs") %>

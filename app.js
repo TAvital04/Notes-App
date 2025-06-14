@@ -17,10 +17,6 @@
     import flash from "connect-flash";
     import {notFound, flashValidationErrors} from "./handlers/errorHandlers.js";
 
-    import cookieParser from "cookie-parser";
-
-    import utils from "./utils/utils.js";
-
 // Constants
     export const app = express();
 
@@ -41,8 +37,6 @@
 
     app.use(morgan("dev"));
 
-    app.use(cookieParser());
-
     app.use(
         session({
             secret: process.env.PASSPORT_SECRET,
@@ -62,7 +56,6 @@
     
     // Variables accessible to the views folder (ejs)
     app.use((req, res, next) => {
-        res.locals.u = utils;
         res.locals.flashes = req.flash();
         res.locals.user = req.user;
         next();

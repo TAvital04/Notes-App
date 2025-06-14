@@ -1,0 +1,48 @@
+body {
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.title input {
+    outline: none;
+    box-shadow: none;
+    border: none;
+
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+
+    display: block;
+    margin: 1rem auto;
+
+    font-size: 24px;
+}
+
+.content textarea {
+    outline: none;
+    box-shadow: none;
+    border: none;
+
+    width: 100%;
+    line-height: 1.5;
+    padding: 1rem;
+    height: 100vh;
+    resize: none;
+    box-sizing: border-box;
+
+    display: block;
+    margin: 1rem auto;
+
+    font-size: 18px;
+}
+
+.submit {
+    outline: none;
+
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+
+    width: 10%;
+    height: 10%;
+}
