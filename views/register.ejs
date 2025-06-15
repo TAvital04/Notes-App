@@ -1,39 +1,41 @@
 <%- include("./partials/header.ejs", {title}) %>
 
-<h1><%= title %></h1>
+<div class = "log" id = "log-register">
+    <h1><%= title %></h1>
 
-<form
-    action = "/register"
-    method = "POST"
->
-    <!--Username-->
-    <div class = "username">
-        <input
-            type = "text"
-            name = "username"
-            placeholder = "username"
-        >
-    </div>
-    
-    <!--Password-->
-    <div class = "password">
-        <input
-            type = "text"
-            name = "password"
-            placeholder = "password"
-        >
-    </div>
+    <form
+        action = "/register"
+        method = "POST"
+    >
+        <!--Username-->
+        <div class = "username">
+            <input
+                type = "text"
+                name = "username"
+                placeholder = "username"
+            >
+        </div>
+        
+        <!--Password-->
+        <div class = "password">
+            <input
+                type = "text"
+                name = "password"
+                placeholder = "password"
+            >
+        </div>
 
-    <!--Confirm Password-->
-    <div class = "confirm-password">
-        <input
-            type = "text"
-            name = "confirm-password"
-            placeholder = "confirm-password"
-        >
-    </div>
+        <!--Confirm Password-->
+        <div class = "confirm-password">
+            <input
+                type = "text"
+                name = "confirm-password"
+                placeholder = "confirm-password"
+            >
+        </div>
 
-    <button type = "submit" class = "submit"></button>
-</form>  
+        <button type = "submit" class = "submit"></button>
+    </form>
+</div>  
 
 <%- include("./partials/footer.ejs") %>

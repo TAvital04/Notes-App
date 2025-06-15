@@ -1,13 +1,19 @@
 <%- include("./partials/header.ejs", {title}) %>
 
-<h1><%= title %></h1>
+<div class = "notebook" id = "allNotes-notebook">
 
-<a type = "button" href = "/notes/add">New Note</a>
+    <div id = "allNotes-notebook-heading">
+        <h1 id = "allNotes-notebook-title">Notes</h1>
 
-<div id = "notes-list">
+        <a href = "/notes/add" id = "allNotes-notebook-heading-newNote">
+            <button></button>
+        </a>
+    </div>
+
     <% notes.map(note => { %>
-        <%- include("./components/note.ejs", {note}) %>
+        <%- include("./components/listNote.ejs", {note}) %>
     <% }) %>
+
 </div>
 
 <%- include("./partials/footer.ejs") %>

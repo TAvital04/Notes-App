@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+  <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,13 +7,15 @@
 
     <link rel = "stylesheet" href = "/styles/style.css">
 
-    <link rel = "stylesheet" href = "/styles/note.css">
+    <link rel = "stylesheet" href = "/styles/addEditNote.css">
+    <link rel = "stylesheet" href = "/styles/allNotes.css">
+    <link rel = "stylesheet" href = "/styles/loginRegister.css">
   </head>
   
   <body>
     <% Object.keys(flashes).forEach(category => { %>
       <% flashes[category].forEach(message => { %>
-        <div class="flash-message <%= category %>">
+        <div class="flash-message">
           <span><%- message %></span>
           <button class="close-btn" aria-label="Close">&times;</button>
         </div>

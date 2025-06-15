@@ -1,0 +1,65 @@
+#allNotes-notebook {
+    margin-top: 10%;
+    margin-bottom: 10%;
+    padding: 2rem;
+
+    height: auto;
+
+    background-color: white;
+}
+
+#note {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 1rem;
+}
+
+#allNotes-notebook-heading {
+    display: flex;
+    justify-content: space-between;
+}
+
+#allNotes-notebook-heading-newNote button {
+    outline: none;
+
+    width: 50px;
+    height: 50px;
+
+    background: url("/uploads/plus-sign.png") no-repeat center;
+    background-size: contain;
+    border: none;
+
+    cursor: pointer;
+}
+
+#note-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#note-title a {
+    color: black;
+    text-decoration: none;
+
+    font-size: 25px;
+}
+
+#note-options-delete {
+    background: url("/uploads/small-trash-can-closed.png") no-repeat center;
+    background-size: contain;
+    border: none;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+
+#note-options-delete:hover {
+    background: url("/uploads/small-trash-can-open.png") no-repeat center;
+    background-size: contain;
+    border: none;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+

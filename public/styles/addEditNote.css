@@ -1,0 +1,59 @@
+#addNote-notebook, #editNote-notebook {
+    margin-top: 10%;
+    margin-bottom: 10%;
+
+    margin-left: 20%;
+    margin-right: 20%;
+
+    height: 100vh;
+}
+
+#addNote-notebook-title input, #editNote-notebook-title input {
+    outline: none;
+    box-shadow: none;
+    border: none;
+
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+
+    display: block;
+    margin: 1rem auto;
+
+    font-size: 24px;
+}
+
+#addNote-notebook-content textarea, #editNote-notebook-content textarea {
+    outline: none;
+    box-shadow: none;
+    border: none;
+
+    height: 100vh;
+    width: 100%;
+    line-height: 1.5;
+    padding: 1rem;
+    resize: none;
+    box-sizing: border-box;
+
+    display: block;
+    margin: 1rem auto;
+
+    font-size: 18px;
+}
+
+#addNote-notebook-submit button, #editNote-notebook-submit button {
+    outline: none;
+
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+
+    width: 100px;
+    height: 100px;
+
+    background: url("/uploads/check-mark.png") no-repeat center;
+    background-size: contain;
+    border: none;
+
+    cursor: pointer;
+}

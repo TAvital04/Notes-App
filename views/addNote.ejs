@@ -1,12 +1,12 @@
 <%- include("./partials/header.ejs", {title}) %>
 
-<div class = "notebook">
+<div class = "notebook" id = "addNote-notebook">
     <form
         action = "/notes/add"
         method = "POST"
     >
         <!--Title-->
-        <div class = "title">
+        <div id = "addNote-notebook-title">
             <input 
                 type = "text"
                 name = "title"
@@ -15,14 +15,17 @@
         </div>
 
         <!--Content-->
-        <div class = "content">
+        <div id = "addNote-notebook-content">
             <textarea
                 name = "content"
                 placeholder = "Enter note body"
             ></textarea>
         </div>
 
-        <button type = "submit" class = "submit"></button>
+        <!--Submit Button-->
+        <div id = "addNote-notebook-submit">
+            <button type = "submit"></button>
+        </div>
     </form>
 </div>
 

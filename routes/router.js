@@ -12,7 +12,7 @@
 
 // Routes
     router.get("/", (req, res) => {
-        res.send("Home");
+        res.redirect("/notes");
     });
 
     // Notes
