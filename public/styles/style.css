@@ -6,3 +6,7 @@ body {
     background: url("/uploads/wood-background.png") no-repeat center center fixed;
     background-size: cover;
 }
+
+h1 {
+    cursor: default;
+}

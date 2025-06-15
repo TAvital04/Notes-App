@@ -3,8 +3,12 @@ import {body, validationResult} from "express-validator";
 
 // Register
     const registerForm = async(req, res) => {
+        const errors = req.session.formErrors || [];
+        delete req.session.formErrors;
+
         res.render("register", {
-            title: "Register"
+            title: "Register",
+            errors
         });
     }
 
@@ -40,7 +44,8 @@ import {body, validationResult} from "express-validator";
             const errors = validationResult(req);
             
             if(!errors.isEmpty()) {
-                res.send(errors.errors.map((err) => err.msg).join(". "));
+                req.session.formErrors = errors.array().map(err => err.msg);
+                res.redirect("/register");
             } else {
                 next();
             }

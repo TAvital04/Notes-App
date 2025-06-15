@@ -1,5 +1,15 @@
 <%- include("./partials/header.ejs", {title}) %>
 
+<div id = "registration-errors">
+    <% if(errors.length > 0) { %>
+        <ul id = "errors-list">
+            <% errors.forEach(msg => { %>
+                <li><%= msg %></li>
+            <% }) %>
+        </ul>
+    <% } %>
+</div>
+
 <div class = "log" id = "log-register">
     <h1><%= title %></h1>
 
@@ -36,6 +46,8 @@
 
         <button type = "submit" id = "loginRegister-submit"></button>
     </form>
+
+    <a href = "/login">Login</a>
 </div>  
 
 <%- include("./partials/footer.ejs") %>

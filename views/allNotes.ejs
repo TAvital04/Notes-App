@@ -1,5 +1,15 @@
 <%- include("./partials/header.ejs", {title}) %>
 
+<form
+    action = "/logout"
+    method = "GET"
+>
+    <!--Submit Button-->
+    <div id = "logout">
+        <button type = "submit">Log Out</button>
+    </div>
+</form>
+
 <div class = "notebook" id = "allNotes-notebook">
 
     <div id = "allNotes-notebook-heading">
