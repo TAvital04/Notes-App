@@ -14,7 +14,6 @@
         }
         const note = await noteHandler.createNote(noteData);
 
-        req.flash("success", `/${note.slug} added successfull!`);
         res.redirect("/notes");
     }
 

@@ -5,14 +5,6 @@ export const catchErrors = (fn) => {
     }
 }
 
-export const flashValidationErrors = (err, req, res, next) => {
-    if(!err.errors) return next(err);
-
-    const errorKeys = Object.keys(err.errors);
-    errorKeys.forEach((key) => req.flash("error", err.errors[key].message));
-    res.redirect("/notes");
-}
-
 export const notFound = (req, res, next) => {
     const err = new Error("Not Found :P");
     err.status = 404;

@@ -13,11 +13,3 @@
   </head>
   
   <body>
-    <% Object.keys(flashes).forEach(category => { %>
-      <% flashes[category].forEach(message => { %>
-        <div class="flash-message">
-          <span><%- message %></span>
-          <button class="close-btn" aria-label="Close">&times;</button>
-        </div>
-      <% }) %>
-    <% }) %>
